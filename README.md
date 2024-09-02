@@ -1,90 +1,115 @@
-# Game of life group 8
+**3. Maak een Branch Aan**
+Om een branch te maken in Git:
 
-
-
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+`git branch nieuwe-branch-naam`
+Vervang `nieuwe-branch-naam` door de naam die je voor de branch wilt gebruiken.
+**Schakel over naar de Nieuwe Branch**:
 
 ```
-cd existing_repo
-git remote add origin https://git.nexed.com/emmanuelmukwiza/game-of-life-group-8.git
-git branch -M main
-git push -uf origin main
+git branch nieuwe-branch-naam
 ```
 
-## Integrate with your tools
 
-- [ ] [Set up project integrations](https://git.nexed.com/emmanuelmukwiza/game-of-life-group-8/-/settings/integrations)
+`git checkout nieuwe-branch-naam`
+Als alternatief kun je een branch maken en er direct naartoe schakelen met één commando:
 
-## Collaborate with your team
+```
+git checkout nieuwe-branch-naam
+```
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
 
-## Test and Deploy
+`git checkout -b nieuwe-branch-naam`
+**4. Werk aan Je Branch**
+**Maak Wijzigingen**: Bewerk bestanden, voeg nieuwe bestanden toe of verwijder bestanden indien nodig voor je functie of oplossing.
+**Voeg Wijzigingen Toe**:
 
-Use the built-in continuous integration in GitLab.
+```
+git checkout -b nieuwe-branch-naam
+```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
 
-***
+`git add --all `
+Dit voegt alle wijzigingen toe. Je kunt ook specifieke bestanden toevoegen:
 
-# Editing this README
+```
+git add --all
+```
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+**Commit Wijzigingen**:
+`git commit -m "Je commit-bericht"`
+Schrijf een betekenisvol commit-bericht waarin je je wijzigingen beschrijft.
+**5. Push Je Branch naar een Remote Repository**
+Als je werkt met een remote repository en je wilt je branch delen:
+**Push de Branch**:
 
-## Name
-Choose a self-explaining name for your project.
+```
+git commit -m "Je commit-bericht
+```
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+`git push origin nieuwe-branch-naam`
+Dit uploadt je branch en de commits naar de remote repository.
+**Maak een Pull Request** (optioneel, op platforms zoals GitHub, GitLab, Bitbucket):
+* Ga naar je repository op het platform.
+* Je ziet meestal een optie om een pull request (PR) te maken voor de branch die je zojuist hebt gepusht.
+* Volg de instructies van het platform om de PR te maken en in te dienen voor review en samenvoegen.
+**6. Schakel Tussen Branches**
+Om terug te schakelen naar een andere branch:
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+```
+git push origin nieuwe-branch-naam
+```
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+`git checkout branch-naam`
+**7. Merge Branches**
+Als je functie of oplossing klaar is en je wilt deze samenvoegen met de hoofdbranch (vaak `main` of `master`):
+**Schakel over naar de Hoofdbranch**:
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+```
+git checkout branch-naam
+```
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+`git checkout main`
+**Merge de Feature Branch**:
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+```
+git checkout main
+```
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+`git merge nieuwe-branch-naam`
+**Push de Bijgewerkte Hoofdbranch**:
 
-## Contributing
+```
+git merge nieuwe-branch-naam
+```
+
+
+`git push origin main`
+**8. Verwijder een Branch**
+Na het samenvoegen wil je misschien de branch verwijderen:
+**Verwijder een Lokale Branch**:
+
+```
+git push origin main
+```
+
+`git branch -d nieuwe-branch-naam`
+Gebruik `-D` om geforceerd te verwijderen als de branch niet samengevoegd is:
+
+```
+git branch -d nieuwe-branch-naam
+```
+
+
+`git push origin --delete nieuwe-branch-naam`
+**Samenvatting**
+* **Maak Aan**: `git branch branch-naam`
+* **Schakel Over**: `git checkout branch-naam`
+* **Maak en Schakel Over**: `git checkout -b branch-naam`
+* **Push**: `git push origin branch-naam`
+* **Merge**: `git merge branch-naam`
+* **Verwijder**: `git branch -d branch-naam` (lokaal), `git push origin --delete branch-naam` (remote)
+
+## Contributing.
 As a team we need to know what were working in on so here is a link a to scrumboard and on that board are things that as a team,
 we each need to do each person has on objective here's a link to the scrumboard:  https://lucid.app/lucidspark/455622f1-bad0-4165-a809-35737e9d2449/edit?viewport_loc=-13187%2C4048%2C4554%2C2161%2C0_0&invitationId=inv_5bca598b-7734-4674-9798-bd6154b178b7
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
-
