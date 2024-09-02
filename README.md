@@ -77,7 +77,7 @@ If you have ideas for releases in the future, it is a good idea to list them in 
 
 ## Contributing
 As a team we need to know what were working in on so here is a link a to scrumboard and on that board are things that as a team,
-we each need to do each person has on objective.
+we each need to do each person has on objective here's a link to the scrumboard:  https://lucid.app/lucidspark/455622f1-bad0-4165-a809-35737e9d2449/edit?viewport_loc=-13187%2C4048%2C4554%2C2161%2C0_0&invitationId=inv_5bca598b-7734-4674-9798-bd6154b178b7
 
 ## Authors and acknowledgment
 Show your appreciation to those who have contributed to the project.
