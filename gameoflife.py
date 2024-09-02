@@ -42,3 +42,19 @@ def main():
     screen.fill(COLOR_GRID)
     update(screen, cells, 10)
     
+    pygame.display.flip()
+    pygame.display.update
+    
+    running = False
+    
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                return
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    running = not running
+                    update(screen, cells, 10)
+                    pygame.display.update()
+            if pygame.mouse.get_pressed()[0]:
