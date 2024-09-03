@@ -65,11 +65,3 @@ def main():
                 
         screen.fill(COLOR_GRID)
         
-        if running:
-            cells = update(screen, cells, 10, with_progress=True)
-            pygame.display.update()
-            
-        time.sleep(0.001)
-        
-if __name__ == '__main__':
-    main()
