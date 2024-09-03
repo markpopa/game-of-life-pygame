@@ -33,3 +33,18 @@ def update(screen, cells, size, with_progress=False):
         
     return updated_cells
 
+
+def main():
+    pygame.init()
+    screen = pygame.display.set_mode((800, 600))
+    
+    cells = np.zeros((60, 80))
+    screen.fill(COLOR_GRID)
+    update(screen, cells, 10)
+    
+    pygame.display.flip()
+    pygame.display.update
+    
+    running = False
+    
+
