@@ -2,10 +2,10 @@ import time
 import pygame
 import numpy as np
 
-COLOR_BG = (10, 10, 10)
-COLOR_GRID = (40, 40, 40)
-COLOR_DIE_NEXT = (170, 170, 170)
-COLOR_ALIVE_NEXT = (255, 255, 255)
+BG = (10, 10, 10)
+GRID = (40, 40, 40)
+DIE = (170, 170, 170)
+ALIVE = (255, 255, 255)
 
 
 def update(screen, cells, size, with_progress=False):
@@ -13,21 +13,21 @@ def update(screen, cells, size, with_progress=False):
     
     for row, col in np.ndindex(cells.shape):
         alive = np.sum(cells[row-1:row+2, col-1:col+2]) - cells[row, col]
-        color = COLOR_BG if cells[row, col] == 0 else COLOR_ALIVE_NEXT
+        color = BG if cells[row, col] == 0 else ALIVE
         
         if cells[row, col]  == 1:
             if alive < 2 or alive > 3:
                 if with_progress:
-                    color = COLOR_DIE_NEXT
+                    color = DIE
             elif 2 <= alive <= 3:
                 updated_cells[row, col] = 1
                 if with_progress:
-                    color = COLOR_ALIVE_NEXT
+                    color = ALIVE
         else:
             if alive == 3:
                 updated_cells[row, col] = 1
                 if with_progress:
-                    color = COLOR_ALIVE_NEXT
+                    color = ALIVE
                     
         pygame.draw.rect(screen, color, (col * size, row * size, size -1, size -1))
         
@@ -39,7 +39,7 @@ def main():
     screen = pygame.display.set_mode((800, 600))
     
     cells = np.zeros((60, 80))
-    screen.fill(COLOR_GRID)
+    screen.fill(GRID)
     update(screen, cells, 10)
     
     pygame.display.flip()
@@ -63,7 +63,7 @@ def main():
                 update(screen, cells, 10)
                 pygame.display.update()
                 
-        screen.fill(COLOR_GRID)
+        screen.fill(GRID)
         
         if running:
             cells = update(screen, cells, 10, with_progress=True)
