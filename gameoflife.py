@@ -30,7 +30,7 @@ def update(screen, cells, size, with_progress=False):
                 if with_progress:
                     color = ALIVE
                     
-        pygame.draw.rect(screen, color, (col * size, row * size, size -1, size -1))
+        pygame.draw.rect(screen, color, (col * size, row * size, size - 1, size - 1))
         
     return updated_cells
 
@@ -47,7 +47,8 @@ def main():
     pygame.display.update()
     
     running = False
-    
+    speed = 0.1  # Initial speed
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -58,6 +59,12 @@ def main():
                     running = not running
                     update(screen, cells, 10)
                     pygame.display.update()
+                elif event.key == pygame.K_RIGHT:
+                    speed = max(0.001, speed - 0.01)
+                elif event.key == pygame.K_LEFT:
+                    speed = min(1.0, speed + 0.01)
+                elif event.key == pygame.K_DOWN:
+                    speed = 0.1
             if pygame.mouse.get_pressed()[0]:
                 pos = pygame.mouse.get_pos()
                 cells[pos[1] // 10, pos[0] // 10] = 1
@@ -70,8 +77,8 @@ def main():
             cells = update(screen, cells, 10, with_progress=True)
             pygame.display.update()
             
-        time.sleep(0.001)
-                    
-                    
+        time.sleep(speed)
+
+
 if __name__ == '__main__':
     main()
