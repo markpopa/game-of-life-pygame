@@ -47,7 +47,7 @@ def main():
     pygame.display.update()
     
     running = False
-    speed = 0.1  # Initial speed
+    speed = 0.1
 
     while True:
         for event in pygame.event.get():
