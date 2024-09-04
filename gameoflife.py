@@ -6,6 +6,7 @@ BG = (10, 10, 10)
 GRID = (40, 40, 40)
 DIE = (170, 170, 170)
 ALIVE = (255, 255, 255)
+SIZE = 10
 
 
 def update(screen, cells, size, with_progress=False):
@@ -36,9 +37,9 @@ def update(screen, cells, size, with_progress=False):
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((800, 600))
+    screen = pygame.display.set_mode((128 * SIZE, 72 * SIZE))
     
-    cells = np.zeros((60, 80))
+    cells = np.zeros((72, 128))
     screen.fill(GRID)
     update(screen, cells, 10)
     
