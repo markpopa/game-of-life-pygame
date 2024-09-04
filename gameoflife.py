@@ -72,5 +72,15 @@ def main():
             
         time.sleep(0.001)
         
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                return
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    running = not running
+                    update(screen, cells, 10)
+                    pygame.display.update()
+        
 if __name__ == '__main__':
     main()
