@@ -44,7 +44,7 @@ def main():
     update(screen, cells, 10)
     
     pygame.display.flip()
-    pygame.display.update
+    pygame.display.update()
     
     running = False
     
