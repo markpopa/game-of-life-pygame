@@ -71,15 +71,6 @@ def main():
             pygame.display.update()
             
         time.sleep(0.001)
-        
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                return
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RIGHT:
-                    time.sleep(0)
                     
                     
 if __name__ == '__main__':
