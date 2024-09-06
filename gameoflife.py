@@ -73,6 +73,12 @@ def main():
                     speed = min(1.0, speed + 0.01)
                 elif event.key == pygame.K_DOWN:
                     speed = 0.1
+                elif event.key == pygame.K_F5:
+                    savegame(cells)
+                elif event.key == pygame.K_F6:
+                    cells = loadgame()
+                    update(screen, cells, SIZE)
+                    pygame.display.update()
             if pygame.mouse.get_pressed()[0]:
                 pos = pygame.mouse.get_pos()
                 cells[pos[1] // 10, pos[0] // 10] = 1
