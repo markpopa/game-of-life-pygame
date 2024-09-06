@@ -1,4 +1,5 @@
 import time
+import pickle
 import pygame
 import numpy as np
 
@@ -8,6 +9,13 @@ DIE = (170, 170, 170)
 ALIVE = (255, 255, 255)
 SIZE = 10
 
+def savegame(cells):
+    with open('savegame.pkl', 'wb') as f:
+        pickle.dump(cells, f)
+
+def loadgame():
+    with open('savegame.pkl', 'rb') as f:
+        return pickle.load(f)
 
 def update(screen, cells, size, with_progress=False):
     updated_cells = np.zeros((cells.shape[0], cells.shape[1]))
