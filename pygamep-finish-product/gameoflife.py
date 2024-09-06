@@ -1,0 +1,98 @@
+import time
+import pickle
+import pygame
+import numpy as np
+
+BG = (10, 10, 10)
+GRID = (40, 40, 40)
+DIE = (170, 170, 170)
+ALIVE = (255, 255, 255)
+SIZE = 10
+
+def savegame(cells):
+    with open('savegame.pkl', 'wb') as f:
+        pickle.dump(cells, f)
+
+def loadgame():
+    with open('savegame.pkl', 'rb') as f:
+        return pickle.load(f)
+
+def update(screen, cells, size, with_progress=False):
+    updated_cells = np.zeros((cells.shape[0], cells.shape[1]))
+    
+    for row, col in np.ndindex(cells.shape):
+        alive = np.sum(cells[row-1:row+2, col-1:col+2]) - cells[row, col]
+        color = BG if cells[row, col] == 0 else ALIVE
+        
+        if cells[row, col]  == 1:
+            if alive < 2 or alive > 3:
+                if with_progress:
+                    color = DIE
+            elif 2 <= alive <= 3:
+                updated_cells[row, col] = 1
+                if with_progress:
+                    color = ALIVE
+        else:
+            if alive == 3:
+                updated_cells[row, col] = 1
+                if with_progress:
+                    color = ALIVE
+                    
+        pygame.draw.rect(screen, color, (col * size, row * size, size - 1, size - 1))
+        
+    return updated_cells
+
+
+def main():
+    pygame.init()
+    screen = pygame.display.set_mode((80 * SIZE, 60 * SIZE))
+    
+    cells = np.zeros((60, 80))
+    screen.fill(GRID)
+    update(screen, cells, 10)
+    
+    pygame.display.flip()
+    pygame.display.update()
+    
+    running = False
+    speed = 0.001
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                return
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    running = not running
+                    update(screen, cells, 10)
+                    pygame.display.update()
+                elif event.key == pygame.K_RIGHT:
+                    speed = max(0.001, speed - 0.01)
+                elif event.key == pygame.K_LEFT:
+                    speed = min(1.0, speed + 0.01)
+                elif event.key == pygame.K_DOWN:
+                    speed = 0.1
+                elif event.key == pygame.K_F5:
+                    savegame(cells)
+                elif event.key == pygame.K_F6:
+                    cells = loadgame()
+                    update(screen, cells, SIZE)
+                    pygame.display.update()
+            if pygame.mouse.get_pressed()[0]:
+                pos = pygame.mouse.get_pos()
+                cells[pos[1] // 10, pos[0] // 10] = 1
+                update(screen, cells, 10)
+                pygame.display.update()
+                
+        screen.fill(GRID)
+        
+        if running:
+            cells = update(screen, cells, 10, with_progress=True)
+            pygame.display.update()
+            
+        time.sleep(speed)
+
+
+if __name__ == '__main__':
+    main()
