@@ -45,9 +45,9 @@ def update(screen, cells, size, with_progress=False):
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((128 * SIZE, 72 * SIZE))
+    screen = pygame.display.set_mode((80 * SIZE, 60 * SIZE))
     
-    cells = np.zeros((72, 128))
+    cells = np.zeros((60, 80))
     screen.fill(GRID)
     update(screen, cells, 10)
     
