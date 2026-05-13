@@ -26,3 +26,18 @@ A high-performance Python implementation of Conway's Game of Life. This project 
 1. **Install Requirements:**
    ```bash
    pip install -r requirements.txt
+
+2. **🚀 Launch Simulation**
+ **Run the main script from your terminal:**
+    ```bash
+    python gameoflife.py
+
+3. **Controls:**
+
+*   Mouse (Left Click): Draw cells.
+
+*    Spacebar: Pause / Resume simulation.
+
+*    Left/Right Arrows: Change speed.
+
+*    F5 / F6: Save or Load your pattern.
